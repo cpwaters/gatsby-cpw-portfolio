@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 const app = express();
-mongoose.connect('mongodb+srv://cp-waters:20nialL05@cluster0.gxswc.mongodb.net/gatsby-portfolio-03-05-21?retryWrites=true&w=majority' , {
+mongoose.connect('mongodb+srv://DB_USER:DB_PASS@cluster0.gxswc.mongodb.net/DB_NAME?retryWrites=true&w=majority' , {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
