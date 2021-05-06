@@ -1,8 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import dbCreds from '../public/dbcreds';
 
-const app = express();
-mongoose.connect('mongodb+srv://DB_USER:DB_PASS@cluster0.gxswc.mongodb.net/DB_NAME?retryWrites=true&w=majority' , {
+const app = express({ dbCreds });
+mongoose.connect('mongodb+srv://'+ dbCreds.db_user +':'+ dbCreds.db_pass +'@cluster0.gxswc.mongodb.net/'+ dbCreds.db_name +'?retryWrites=true&w=majority' , {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
