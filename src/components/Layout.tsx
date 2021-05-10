@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from './navbar'
+import Navbar from './Navbar'
 
 
-export default function Layout({ children }: any) {
+export default function Layout({ children }:any) {
   return (
     <div className="layout">
       <Navbar />

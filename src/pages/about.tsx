@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 
-export default function about() {
+export default function About() {
   return (
     <Layout>
       <div>
@@ -9,5 +9,5 @@ export default function about() {
         <p>This is the about page</p>
       </div>
     </Layout>
-  )
+  );
 }
