@@ -1,19 +1,15 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import dbCreds from '../public/dbcreds';
+const MongoClient = require('mongodb').MongoClient;
 
-const app = express({ dbCreds });
-mongoose.connect('mongodb+srv://'+ dbCreds.db_user +':'+ dbCreds.db_pass +'@cluster0.gxswc.mongodb.net/'+ dbCreds.db_name +'?retryWrites=true&w=majority' , {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+const uri = "mongodb+srv://cp-waters:20nialL05@cluster0.gxswc.mongodb.net/sample_airbnb?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+client.connect(err => {
+  const collection = client.db("sample_airbnb").collection("listingsAndReviews");
+  // perform actions on the collection object
+console.log(connections);
+  client.close();
 });
 
-const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+
