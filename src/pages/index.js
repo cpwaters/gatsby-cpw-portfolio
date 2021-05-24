@@ -2,10 +2,12 @@ import { graphql, Link } from 'gatsby';
 import React from 'react';
 import Layout from '../components/Layout';
 import styles from '../styles/home.module.css';
+import Img from 'gatsby-image';
 
 export default function Home({data}) {
   console.log(data);
   const { title, description } = data.site.siteMetadata;
+  const mainImage = data.images.childImageSharp.fluid;
   return (
     <Layout>
       <section className={styles.header}>
@@ -14,7 +16,7 @@ export default function Home({data}) {
           <h3>Design & Development</h3>
           <Link className={styles.btn} to="/projects">My Projects</Link>
         </div>
-        <img src="/dev.png" alt="developer" style={{ maxWidth: '100%' }} />
+        <Img fluid={mainImage} />
         <p>{title} - {description}</p>
       </section>
     </Layout>
@@ -29,6 +31,13 @@ query SiteData {
       copyright
       description
       title
+    }
+  }
+  images: file(relativePath: {eq: "dev.png"}) {
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid
+      }
     }
   }
 }
